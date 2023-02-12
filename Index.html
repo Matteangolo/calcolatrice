@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .calculator {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+      }
+      input[type="button"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 20px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        background-color: lightblue;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calculator">
+      <input type="text" id="display">
+      <br>
+      <input type="button" value="1">
+      <input type="button" value="2">
+      <input type="button" value="3">
+      <input type="button" value="+">
+      <br>
+      <input type="button" value="4">
+      <input type="button" value="5">
+      <input type="button" value="6">
+      <input type="button" value="-">
+      <br>
+      <input type="button" value="7">
+      <input type="button" value="8">
+      <input type="button" value="9">
+      <input type="button" value="*">
+      <br>
+      <input type="button" value="C">
+      <input type="button" value="0">
+      <input type="button" value="=">
+      <input type="button" value="/">
+    </div>
+    <script>
+      const display = document.getElementById("display");
+      const buttons = document.querySelectorAll("input[type='button']");
+      for (let button of buttons) {
+        button.addEventListener("click", function() {
+          if (this.value === "C") {
+            display.value = "";
+          } else if (this.value === "=") {
+            display.value = eval(display.value);
+          } else {
+            display.value += this.value;
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
